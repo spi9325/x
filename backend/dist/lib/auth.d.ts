@@ -3024,6 +3024,8 @@ export declare const auth: {
         };
     }>;
     options: {
+        secret: string;
+        trustedOrigins: string[];
         emailAndPassword: {
             enabled: true;
         };
