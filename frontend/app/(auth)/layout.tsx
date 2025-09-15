@@ -6,7 +6,7 @@ export default function RootLayout({
 }>) {
   return (
  
-      <section className="max-w-[1240px] mx-auto flex">
+      <section className="">
         {children}
       </section>
 
