@@ -9,7 +9,7 @@ app.use(cookieParser());
 dotenv.config();
 const PORT = process.env.PORT || 8080;
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));

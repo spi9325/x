@@ -3026,8 +3026,17 @@ export declare const auth: {
     options: {
         secret: string;
         trustedOrigins: string[];
+        baseURL: string;
         emailAndPassword: {
             enabled: true;
+            autoSignIn: true;
+        };
+        socialProviders: {
+            google: {
+                prompt: "select_account";
+                clientId: string;
+                clientSecret: string;
+            };
         };
         database: (options: import("better-auth").BetterAuthOptions) => import("better-auth").Adapter;
     };
