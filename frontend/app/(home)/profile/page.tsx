@@ -86,11 +86,11 @@ const Page = () => {
   }, []);
 
   return (
-    <section className={`p-1 max-w-[1440px] border h-screen w-full relative ${edit ? "overflow-hidden" : "overflow-x-hidden"} scrollbar-hide`}>
+    <section className={`p-1 max-w-[1440px] h-screen w-full relative ${edit ? "overflow-hidden" : "overflow-x-hidden"} scrollbar-hide`}>
       {/* profile section */}
       <div className="">
-            <div className="border px-2 pt-9 mx-auto text-white flex justify-between">
-              <div className="border w-[20%] aspect-square rounded-full text-center relative overflow-hidden flex justify-center items-center">
+            <div className=" px-2 pt-9 mx-auto text-white flex justify-between">
+              <div className=" w-[20%] aspect-square rounded-full text-center relative overflow-hidden flex justify-center items-center">
 
                   {profile.profile ? <Image src={`${profile.profile}`} alt="image of post" fill /> : <p onClick={()=>setEdit(true)} className="flex justify-center bg-green-400 rounded-2xl px-1">Edit Profile</p> }
 
@@ -105,7 +105,7 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="mt-2 border text-white px-5">
+            <div className="mt-2 text-white px-5">
               <div className="flex gap-6 items-center">
                 <span className="text-2xl font-bold">{profile.name}</span>
                 <span className="">{profile.emailVerified ? "Verified" : "Not Verified"}</span>
@@ -118,7 +118,7 @@ const Page = () => {
             </div>
       </div>
 
-      <div className="border mt-3">
+      <div className=" mt-3">
         <CustomePosts />
       </div>
 

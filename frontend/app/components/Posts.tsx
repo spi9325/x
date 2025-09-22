@@ -57,6 +57,10 @@ export const Posts = () => {
       });
     }
     getPost();
+
+    return ()=>{
+      setPosts([]);
+    }
   }, []);
 
 
@@ -95,8 +99,8 @@ export const Posts = () => {
 
   return (
     <div className="p-4 rounded mt-2 flex flex-col gap-4 xl:mx-9 relative">
-      {posts.map((cur) => (
-        <div key={cur.id} className="">
+      {posts.map((cur,index) => (
+        <div key={index} className="">
           <div className="w-full mb-6 border border-gray-600 xl:w-[90%]" />
           <div className=" flex gap-2">
             {/* profile image here */}

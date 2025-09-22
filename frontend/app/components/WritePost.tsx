@@ -81,7 +81,7 @@ useEffect(() => {
 
   
   return (
-    <section className="text-white border border-red-500 p-2 h-[725px] overflow-x-hidden scrollbar-hide">
+    <section className="text-white p-2 h-[770px] overflow-x-hidden scrollbar-hide">
       <div className=" text-center text-2xl border-b border-gray-500 pb-3">
         <span className="border-b-[4px] border-green-500">Explore</span>
       </div>

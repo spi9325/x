@@ -85,9 +85,11 @@ export const Sidebar = () => {
       </div>
 
       <div className=" mt-3">
-        <Button className="w-[94%] cursor-pointer py-6 text-lg bg-white text-black rounded-4xl hover:bg-slate-200 hidden xl:flex">
-          Post
-        </Button>
+        <Link href={"/"}>
+          <Button className="w-[94%] cursor-pointer py-6 text-lg bg-white text-black rounded-4xl hover:bg-slate-200 hidden xl:flex">
+              Post
+          </Button>
+        </Link>
         <div className="w-[50px] h-[50px] mx-auto xl:mx-0 xl:hidden bg-white flex justify-center items-center rounded-full">
           {" "}
           <RiQuillPenAiLine className="text-[30px]" />
