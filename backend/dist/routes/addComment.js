@@ -7,7 +7,7 @@ addComment.post("/comment", verifyUser, async (req, res) => {
         const { postId, userComment, userProfile } = req.body;
         if (!postId || !userComment || !userProfile)
             return res.status(403).send("provide some comment data...");
-        const result = await prisma.comment.create({
+        await prisma.comment.create({
             data: {
                 userId: req.id?.toString(),
                 postId,
