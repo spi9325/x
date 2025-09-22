@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className="max-w-[1240px] mx-auto flex">
+      <body className="max-w-[1240px] mx-auto flex overflow-hidden">
         <ToastContainer/>
         {children}
       </body>

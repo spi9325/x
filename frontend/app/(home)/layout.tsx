@@ -5,12 +5,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (        
-     <div className="">
-        <Sidebar/>        
-        {children}
-     </div>
-    
+     <main className="max-w-[1440px] mx-auto flex border w-screen gap-x-2 overflow-hidden">
+          <Sidebar/>
+          <div className="flex-1 overflow-hidden">
+             {children}
+          </div>
+     </main>
+     
   );
 }

@@ -1,10 +1,13 @@
+import { Posts } from "../components/Posts";
+import { WritePost } from "../components/WritePost";
 
-const page = async() => {
+const page = async () => {
+  
   return (
-    <div className="">
-        hii
-    </div>
-  )
-}
+    <>
+      <WritePost/>
+    </>
+  );
+};
 
-export default page
+export default page;
