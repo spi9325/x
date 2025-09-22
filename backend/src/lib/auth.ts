@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import prisma from "./client.js";
+import { customSession } from "better-auth/plugins";
 
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET!,
@@ -22,4 +23,22 @@ export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
+
+  plugins: [
+        customSession(async ({ user, session }) => {
+          const dbUser = await prisma.user.findUnique({
+        where: { id: user.id },
+        select: {       
+          profile: true 
+        },
+      });
+            return {
+                user: {
+                    ...user,
+                    profile: dbUser?.profile,
+                },
+                session
+            };
+        }),
+    ],
 });

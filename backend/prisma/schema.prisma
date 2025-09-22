@@ -15,10 +15,14 @@ model User {
   email         String
   emailVerified Boolean   @default(false)
   image         String?
+  profile       String?
+  bio           String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @default(now()) @updatedAt
   sessions      Session[]
   accounts      Account[]
+  posts         Post[]
+  comments      Comment[]
 
   @@unique([email])
   @@map("user")
@@ -67,4 +71,32 @@ model Verification {
   updatedAt  DateTime @default(now()) @updatedAt
 
   @@map("verification")
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  post      String   @db.Text
+  username  String          
+  imageUrl  String?
+  emailVerified  Boolean
+  comments  Comment[]  
+
+  createdAt DateTime @default(now())    
+  updatedAt DateTime @updatedAt        
+
+  
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  comment   String
+  postId    String
+  username  String
+  userProfile String
+  post      Post     @relation(fields: [postId], references: [id])
+  user    User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
 }

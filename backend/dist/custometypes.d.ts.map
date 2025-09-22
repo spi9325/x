@@ -1,0 +1,1 @@
+{"version":3,"file":"custometypes.d.ts","sourceRoot":"","sources":["../src/custometypes.ts"],"names":[],"mappings":"AACA,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,OAAO,CAAC;QAChB,UAAU,OAAO;YACb,EAAE,CAAC,EAAE,MAAM,CAAC;YACZ,KAAK,CAAC,EAAE,MAAM,CAAC;YACf,QAAQ,CAAC,EAAE,MAAM,CAAC;YAClB,aAAa,CAAC,EAAE,OAAO,CAAC;YACxB,OAAO,CAAC,EAAE,MAAM,CAAC;SACtB;KACF;CACA"}

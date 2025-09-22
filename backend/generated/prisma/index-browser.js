@@ -126,6 +126,8 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   emailVerified: 'emailVerified',
   image: 'image',
+  profile: 'profile',
+  bio: 'bio',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -166,6 +168,27 @@ exports.Prisma.VerificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  post: 'post',
+  username: 'username',
+  imageUrl: 'imageUrl',
+  emailVerified: 'emailVerified',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId'
+};
+
+exports.Prisma.CommentScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  comment: 'comment',
+  postId: 'postId',
+  username: 'username',
+  userProfile: 'userProfile',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -186,7 +209,9 @@ exports.Prisma.ModelName = {
   User: 'User',
   Session: 'Session',
   Account: 'Account',
-  Verification: 'Verification'
+  Verification: 'Verification',
+  Post: 'Post',
+  Comment: 'Comment'
 };
 
 /**

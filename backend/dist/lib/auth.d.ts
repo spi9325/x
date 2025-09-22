@@ -3022,6 +3022,111 @@ export declare const auth: {
             };
             path: "/account-info";
         };
+    } & {
+        getSession: {
+            <AsResponse extends boolean = false, ReturnHeaders extends boolean = false>(inputCtx_0: {
+                body?: undefined;
+            } & {
+                method?: "GET" | undefined;
+            } & {
+                query?: {
+                    disableCookieCache?: string | boolean | undefined;
+                    disableRefresh?: boolean | undefined;
+                } | undefined;
+            } & {
+                params?: Record<string, any>;
+            } & {
+                request?: Request;
+            } & {
+                headers: HeadersInit;
+            } & {
+                asResponse?: boolean;
+                returnHeaders?: boolean;
+                use?: import("better-auth").Middleware[];
+                path?: string;
+            } & {
+                asResponse?: AsResponse | undefined;
+                returnHeaders?: ReturnHeaders | undefined;
+            }): Promise<[AsResponse] extends [true] ? Response : [ReturnHeaders] extends [true] ? {
+                headers: Headers;
+                response: {
+                    user: {
+                        profile: string | null | undefined;
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        email: string;
+                        emailVerified: boolean;
+                        name: string;
+                        image?: string | null | undefined;
+                    };
+                    session: {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        userId: string;
+                        expiresAt: Date;
+                        token: string;
+                        ipAddress?: string | null | undefined;
+                        userAgent?: string | null | undefined;
+                    };
+                } | null;
+            } : {
+                user: {
+                    profile: string | null | undefined;
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    email: string;
+                    emailVerified: boolean;
+                    name: string;
+                    image?: string | null | undefined;
+                };
+                session: {
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    userId: string;
+                    expiresAt: Date;
+                    token: string;
+                    ipAddress?: string | null | undefined;
+                    userAgent?: string | null | undefined;
+                };
+            } | null>;
+            options: {
+                method: "GET";
+                query: import("better-auth").ZodOptional<import("better-auth").ZodObject<{
+                    disableCookieCache: import("better-auth").ZodOptional<import("better-auth").ZodUnion<[import("better-auth").ZodBoolean, import("better-auth").ZodPipe<import("better-auth").ZodString, import("better-auth").ZodTransform<boolean, string>>]>>;
+                    disableRefresh: import("better-auth").ZodOptional<import("better-auth").ZodBoolean>;
+                }, import("better-auth").$strip>>;
+                metadata: {
+                    CUSTOM_SESSION: boolean;
+                    openapi: {
+                        description: string;
+                        responses: {
+                            "200": {
+                                description: string;
+                                content: {
+                                    "application/json": {
+                                        schema: {
+                                            type: "array";
+                                            nullable: boolean;
+                                            items: {
+                                                $ref: string;
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+                        };
+                    };
+                };
+                requireHeaders: true;
+            } & {
+                use: any[];
+            };
+            path: "/get-session";
+        };
     }>;
     options: {
         secret: string;
@@ -3039,6 +3144,142 @@ export declare const auth: {
             };
         };
         database: (options: import("better-auth").BetterAuthOptions) => import("better-auth").Adapter;
+        plugins: {
+            id: "custom-session";
+            hooks: {
+                after: {
+                    matcher: (ctx: import("better-auth").HookEndpointContext) => boolean;
+                    handler: (inputContext: import("better-auth").MiddlewareInputContext<import("better-auth").MiddlewareOptions>) => Promise<{
+                        user: {
+                            profile: string | null | undefined;
+                            id: string;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            email: string;
+                            emailVerified: boolean;
+                            name: string;
+                            image?: string | null | undefined;
+                        };
+                        session: {
+                            id: string;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            userId: string;
+                            expiresAt: Date;
+                            token: string;
+                            ipAddress?: string | null | undefined;
+                            userAgent?: string | null | undefined;
+                        };
+                    }[] | undefined>;
+                }[];
+            };
+            endpoints: {
+                getSession: {
+                    <AsResponse extends boolean = false, ReturnHeaders extends boolean = false>(inputCtx_0: {
+                        body?: undefined;
+                    } & {
+                        method?: "GET" | undefined;
+                    } & {
+                        query?: {
+                            disableCookieCache?: string | boolean | undefined;
+                            disableRefresh?: boolean | undefined;
+                        } | undefined;
+                    } & {
+                        params?: Record<string, any>;
+                    } & {
+                        request?: Request;
+                    } & {
+                        headers: HeadersInit;
+                    } & {
+                        asResponse?: boolean;
+                        returnHeaders?: boolean;
+                        use?: import("better-auth").Middleware[];
+                        path?: string;
+                    } & {
+                        asResponse?: AsResponse | undefined;
+                        returnHeaders?: ReturnHeaders | undefined;
+                    }): Promise<[AsResponse] extends [true] ? Response : [ReturnHeaders] extends [true] ? {
+                        headers: Headers;
+                        response: {
+                            user: {
+                                profile: string | null | undefined;
+                                id: string;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                email: string;
+                                emailVerified: boolean;
+                                name: string;
+                                image?: string | null | undefined;
+                            };
+                            session: {
+                                id: string;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                userId: string;
+                                expiresAt: Date;
+                                token: string;
+                                ipAddress?: string | null | undefined;
+                                userAgent?: string | null | undefined;
+                            };
+                        } | null;
+                    } : {
+                        user: {
+                            profile: string | null | undefined;
+                            id: string;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            email: string;
+                            emailVerified: boolean;
+                            name: string;
+                            image?: string | null | undefined;
+                        };
+                        session: {
+                            id: string;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            userId: string;
+                            expiresAt: Date;
+                            token: string;
+                            ipAddress?: string | null | undefined;
+                            userAgent?: string | null | undefined;
+                        };
+                    } | null>;
+                    options: {
+                        method: "GET";
+                        query: import("better-auth").ZodOptional<import("better-auth").ZodObject<{
+                            disableCookieCache: import("better-auth").ZodOptional<import("better-auth").ZodUnion<[import("better-auth").ZodBoolean, import("better-auth").ZodPipe<import("better-auth").ZodString, import("better-auth").ZodTransform<boolean, string>>]>>;
+                            disableRefresh: import("better-auth").ZodOptional<import("better-auth").ZodBoolean>;
+                        }, import("better-auth").$strip>>;
+                        metadata: {
+                            CUSTOM_SESSION: boolean;
+                            openapi: {
+                                description: string;
+                                responses: {
+                                    "200": {
+                                        description: string;
+                                        content: {
+                                            "application/json": {
+                                                schema: {
+                                                    type: "array";
+                                                    nullable: boolean;
+                                                    items: {
+                                                        $ref: string;
+                                                    };
+                                                };
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+                        };
+                        requireHeaders: true;
+                    } & {
+                        use: any[];
+                    };
+                    path: "/get-session";
+                };
+            };
+        }[];
     };
     $context: Promise<import("better-auth").AuthContext>;
     $Infer: {
